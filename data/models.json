@@ -1,0 +1,275 @@
+[
+  {
+    "id": 1,
+    "name": "SWAT - Tacuarembó",
+    "theme": "Water quantity",
+    "type": "Catchment",
+    "institution": "University of Sydney",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate",
+      "Land use",
+      "Soils"
+    ],
+    "status": "Active",
+    "description": "Process-based hydrological modelling for flow, ET, and land use scenarios.",
+    "website": "https://swat.tamu.edu/",
+    "latitude": -32.52,
+    "longitude": -55.77,
+    "location": "Tacuarembó, Uruguay",
+    "keywords": [
+      "hydrology",
+      "land use",
+      "streamflow"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 2,
+    "name": "San Salvador",
+    "theme": "Water quantity",
+    "type": "Catchment",
+    "institution": "INIA / GMIC",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate",
+      "Land use"
+    ],
+    "status": "Active",
+    "description": "Hydrological monitoring and modelling in agricultural catchment.",
+    "website": "",
+    "latitude": -33.63,
+    "longitude": -57.02,
+    "location": "Soriano, Uruguay",
+    "keywords": [
+      "agriculture",
+      "runoff",
+      "monitoring"
+    ],
+    "gmic_member": true,
+    "map_link": "data/catchments/san-salvador.geojson"
+  },
+  {
+    "id": 3,
+    "name": "Microcuencas",
+    "theme": "Water quality",
+    "type": "Experimental site",
+    "institution": "INIA / GMIC",
+    "scale": "Plot / Small catchment",
+    "inputs": [
+      "Climate",
+      "Management"
+    ],
+    "status": "Active",
+    "description": "Experimental micro-catchments for high-resolution monitoring of water quantity and quality.",
+    "website": "",
+    "latitude": -32.37,
+    "longitude": -58.06,
+    "location": "Uruguay",
+    "keywords": [
+      "monitoring",
+      "experimental",
+      "water quality"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 4,
+    "name": "Santa Lucía (Cuenca 60)",
+    "theme": "Water quality",
+    "type": "Catchment",
+    "institution": "DINACEA / INIA",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate",
+      "Land use",
+      "Nutrients"
+    ],
+    "status": "Active",
+    "description": "Catchment-scale modelling focused on nutrient dynamics and drinking water sources.",
+    "website": "",
+    "latitude": -34.6,
+    "longitude": -56.4,
+    "location": "Santa Lucía, Uruguay",
+    "keywords": [
+      "nutrients",
+      "water quality",
+      "basin"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 5,
+    "name": "Queguay",
+    "theme": "Water quantity",
+    "type": "Catchment",
+    "institution": "INIA / UdelaR",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate",
+      "Land use"
+    ],
+    "status": "Active",
+    "description": "Hydrological assessment of land use change impacts in river basin.",
+    "website": "",
+    "latitude": -31.9,
+    "longitude": -57.8,
+    "location": "Paysandú, Uruguay",
+    "keywords": [
+      "river basin",
+      "flow",
+      "land use"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 6,
+    "name": "Cebollatí",
+    "theme": "Water quantity",
+    "type": "Catchment",
+    "institution": "INIA",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate",
+      "Land use"
+    ],
+    "status": "Active",
+    "description": "Hydrological modelling in rice-dominated basin systems.",
+    "website": "",
+    "latitude": -33.2,
+    "longitude": -53.7,
+    "location": "Rocha / Treinta y Tres, Uruguay",
+    "keywords": [
+      "rice",
+      "irrigation",
+      "hydrology"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 7,
+    "name": "Cuareim",
+    "theme": "Water quantity",
+    "type": "Catchment",
+    "institution": "INIA / Regional projects",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate"
+    ],
+    "status": "Active",
+    "description": "Large-scale basin analysis under climate variability.",
+    "website": "",
+    "latitude": -30.9,
+    "longitude": -57.0,
+    "location": "Artigas, Uruguay",
+    "keywords": [
+      "climate",
+      "basin",
+      "flow"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 8,
+    "name": "Arapey Grande",
+    "theme": "Water quantity",
+    "type": "Catchment",
+    "institution": "INIA",
+    "scale": "Catchment",
+    "inputs": [
+      "Climate",
+      "Land use"
+    ],
+    "status": "Active",
+    "description": "Hydrological studies in northern Uruguay river systems.",
+    "website": "",
+    "latitude": -30.5,
+    "longitude": -57.6,
+    "location": "Salto, Uruguay",
+    "keywords": [
+      "river",
+      "hydrology"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 9,
+    "name": "Laguna de Rocha",
+    "theme": "Water quality",
+    "type": "Lagoon",
+    "institution": "Various",
+    "scale": "Lagoon",
+    "inputs": [
+      "Climate",
+      "Nutrients"
+    ],
+    "status": "Active",
+    "description": "Coastal lagoon system with strong ecological and water quality monitoring.",
+    "website": "",
+    "latitude": -34.6,
+    "longitude": -54.3,
+    "location": "Rocha, Uruguay",
+    "keywords": [
+      "lagoon",
+      "ecosystem",
+      "water quality"
+    ],
+    "gmic_member": false,
+    "map_link": ""
+  },
+  {
+    "id": 10,
+    "name": "Laguna del Cisne",
+    "theme": "Water quality",
+    "type": "Lagoon",
+    "institution": "OSE / DINACEA",
+    "scale": "Lagoon",
+    "inputs": [
+      "Nutrients",
+      "Land use"
+    ],
+    "status": "Active",
+    "description": "Drinking water source with nutrient and algal bloom monitoring.",
+    "website": "",
+    "latitude": -34.75,
+    "longitude": -55.8,
+    "location": "Canelones, Uruguay",
+    "keywords": [
+      "drinking water",
+      "eutrophication"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  },
+  {
+    "id": 11,
+    "name": "Río Negro",
+    "theme": "Water quantity",
+    "type": "Basin",
+    "institution": "INIA / UTE",
+    "scale": "Basin",
+    "inputs": [
+      "Climate"
+    ],
+    "status": "Active",
+    "description": "Large basin modelling including hydropower and flow regulation.",
+    "website": "",
+    "latitude": -32.9,
+    "longitude": -56.5,
+    "location": "Uruguay",
+    "keywords": [
+      "hydropower",
+      "basin",
+      "flow"
+    ],
+    "gmic_member": true,
+    "map_link": ""
+  }
+]

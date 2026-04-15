@@ -1,1 +1,8 @@
-# Template adapetd from The Cayman Blog theme
+/
+├─ index.html
+├─ data/
+│  └─ models.json
+├─ assets/
+│  ├─ logos/
+│  └─ images/
+└─ README.md

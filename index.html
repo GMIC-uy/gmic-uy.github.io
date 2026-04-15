@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GMIC Uruguay | Water Modelling Tools</title>
+  <meta name="description" content="GMIC Uruguay tools for water quantity and quality management." />
+  <meta name="theme-color" content="#0f4c5c" />
+
+  <!-- Favicon -->
+  
+  <link rel="icon"  href="images/logo-wm-02.png?v=2" sizes="162x162"  type="image/png" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="GMIC Uruguay" />
+  <meta property="og:description" content="Models, institutions, applications, and maps for water quantity and quality management in Uruguay." />
+  <meta property="og:type" content="website" />
+
+  <!-- Leaflet -->
+  <link rel="preconnect" href="https://unpkg.com">
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  />
+
+  <style>
+    :root {
+      --bg: #f7fafc;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --brand: #0f4c5c;
+      --brand-2: #2c7da0;
+      --line: #dbe4ea;
+      --accent: #eaf4f4;
+      --shadow: 0 8px 24px rgba(15, 76, 92, 0.08);
+      --radius: 16px;
+      --maxw: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+
+    a { color: var(--brand-2); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(calc(100% - 2rem), var(--maxw));
+      margin: 0 auto;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--brand), #174f6b);
+      color: white;
+      padding: 1rem 0 3rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding: 0.5rem 0 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      max-width: 720px;
+    }
+
+    .site-logo {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      background: white;
+      border-radius: 12px;
+      padding: 0.3rem;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      flex-shrink: 0;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+
+    .brand-text strong {
+      color: white;
+      font-size: 1rem;
+    }
+
+    .brand-text span {
+      color: rgba(255,255,255,0.9);
+      font-size: 0.92rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: white;
+      opacity: 0.95;
+      font-weight: 600;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 1.5rem;
+      align-items: center;
+      padding-top: 1rem;
+    }
+
+    .hero-card,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      color: white;
+      padding-right: 1rem;
+    }
+
+    .hero h1 {
+      margin: 0 0 0.75rem;
+      font-size: clamp(2rem, 4vw, 3.3rem);
+      line-height: 1.1;
+    }
+
+    .hero p {
+      margin: 0 0 1rem;
+      font-size: 1.05rem;
+      max-width: 62ch;
+      opacity: 0.95;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.8rem 1.05rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+    }
+
+    .btn-primary {
+      background: white;
+      color: var(--brand);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border-color: rgba(255,255,255,0.35);
+    }
+
+    .stats {
+      padding: 1.25rem;
+      color: var(--text);
+    }
+
+    .stats h2 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    .stat-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: var(--accent);
+      border-radius: 14px;
+      padding: 0.9rem;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--brand);
+    }
+
+    section {
+      padding: 2.2rem 0;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-size: 1.75rem;
+    }
+
+    .section-head p {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+
+    .card {
+      padding: 1.2rem;
+    }
+
+    #map {
+      width: 100%;
+      height: 520px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.85rem 0.95rem;
+      border-radius: 12px;
+      border: 1px solid var(--line);
+      background: white;
+      font: inherit;
+      color: var(--text);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.85rem 0.75rem;
+      border-bottom: 1px solid var(--line);
+      vertical-align: top;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background: #f0f6f8;
+      color: var(--brand);
+      font-size: 0.9rem;
+    }
+
+    tr:hover td {
+      background: #fafdfd;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 0.25rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent);
+      color: var(--brand);
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin: 0 0.3rem 0.3rem 0;
+    }
+
+    .models-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .model-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 1rem;
+      background: white;
+      box-shadow: var(--shadow);
+    }
+
+    .model-card h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.1rem;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .empty-message {
+      color: var(--muted);
+      padding: 1rem 0;
+    }
+
+    @media (max-width: 900px) {
+      .hero,
+      .grid-2,
+      .filters {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy { padding-right: 0; }
+      #map { height: 400px; }
+
+      nav {
+        align-items: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <img src="images/logo-wm-02.png" alt="GMIC logo" class="site-logo">
+          <div class="brand-text">
+            <strong>GMIC Uruguay</strong>
+            <span>Desarrollamos herramientas de modelación hidrológica para el apoyo a la toma de decisiones en Uruguay</span>
+          </div>
+        </div>
+
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#models">Models</a>
+          <a href="#map-section">Map</a>
+          <a href="#team">Team</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+
+      <div class="hero">
+        <div class="hero-copy">
+          <h1>GMIC: Grupo de Modelación Integrada de Cuencas</h1>
+          <p>
+            GMIC es un espacio de colaboración interinstitucional que desarrolla y aplica modelos para analizar la cantidad y calidad del agua, apoyar la planificación y evaluar escenarios de gestión en cuencas hidrográficas del Uruguay.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#models">Explore models</a>
+            <a class="btn btn-secondary" href="#map-section">Open map</a>
+          </div>
+        </div>
+
+        <div class="hero-card stats">
+          <h2>At a glance</h2>
+          <div class="stat-grid">
+            <div class="stat"><strong id="statModels">0</strong><span>Models</span></div>
+            <div class="stat"><strong id="statInstitutions">0</strong><span>Institutions</span></div>
+            <div class="stat"><strong id="statThemes">0</strong><span>Themes</span></div>
+            <div class="stat"><strong id="statLocations">0</strong><span>Mapped sites</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>About GMIC</h2>
+            <p>
+              This page organizes GMIC information into a format that is easy to maintain on GitHub Pages without a backend.
+            </p>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="card">
+            <h3>What this page does</h3>
+            <ul>
+              <li>Simple project description</li>
+              <li>Searchable model metadata table</li>
+              <li>Interactive map of institutions and case studies</li>
+              <li>Cards for each model with links and keywords</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>How to update it</h3>
+            <p>
+              Edit one JSON file with model metadata. The table, cards, statistics, and map update automatically.
+            </p>
+            <p>
+              You can also add GeoJSON files for catchments and connect them through the <code>map_link</code> field.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="models">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Model catalogue</h2>
+            <p>Filter by name, theme, or institution. Click links to access more information.</p>
+          </div>
+        </div>
+
+        <div class="filters">
+          <input id="searchInput" type="text" placeholder="Search model, theme, institution, application..." />
+          <select id="themeFilter">
+            <option value="">All themes</option>
+          </select>
+          <select id="institutionFilter">
+            <option value="">All institutions</option>
+          </select>
+        </div>
+
+        <div class="card" style="overflow:auto; padding: 0;">
+          <table>
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th>Theme</th>
+                <th>Institution</th>
+                <th>Scale</th>
+                <th>Inputs</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="modelsTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="models-grid" id="modelCards"></div>
+      </div>
+    </section>
+
+    <section id="map-section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Map</h2>
+            <p>Shows institutions, study sites, and catchments from coordinates or GeoJSON files.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div id="map"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Instituciones colaboradoras</h2>
+            <p>
+              Investigadores y técnicos de UdelaR, Ministerio de Ambiente, MGAP, INIA, IRI, Columbia University y la Universidad de Sídney.
+            </p>
+          </div>
+        </div>
+        <div class="card" id="teamBlock">
+          <p><strong>Example institutions:</strong> INIA, Universidad de la República, University of Sydney, IRI and collaborating agencies.</p>
+          <p>You can also place partner logos here using a responsive grid.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>eliananervif@gmail.com</p>
+          </div>
+        </div>
+        <div class="card">
+          <p>Email: <a href="mailto:eliananervif@gmail.com">eliananervif@gmail.com</a></p>
+          <p>GitHub: <a href="https://github.com/enervifa/proyectoINIA-IRI-USYD" target="_blank" rel="noopener">Repository</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>GMIC Uruguay · Built as a simple GitHub Pages site using one HTML file and one JSON data source.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  
+  <script>
+    const DATA_URL = "data/models.json";
+    const URUGUAY_VIEW = {
+      center: [-32.8, -56.0],
+      zoom: 7,
+      bounds: [[-35.2, -58.6], [-29.7, -52.8]]
+    };
+
+    let allData = [];
+    let map;
+    let markersLayer;
+    let geojsonLayerGroup;
+
+    async function loadData() {
+      const response = await fetch(DATA_URL);
+      if (!response.ok) {
+        throw new Error(`Could not load ${DATA_URL} (HTTP ${response.status})`);
+      }
+      return await response.json();
+    }
+
+    function safeArray(value) {
+      if (Array.isArray(value)) return value;
+      if (typeof value === "string" && value.trim() !== "") {
+        return value.split(",").map(v => v.trim()).filter(Boolean);
+      }
+      return [];
+    }
+
+    function popupHtml(d, featureProps = null) {
+      const props = featureProps || {};
+      const title = d.name || props.nombrec3 || props.popup || "Untitled";
+      const region = d.region || d.location || props.nombrec3 || "";
+      const areaLine = props.area ? `Area: ${props.area} km²<br>` : "";
+
+      return `
+        <strong>${title}</strong><br>
+        ${region}<br>
+        ${d.description || ""}<br>
+        ${areaLine}
+        ${d.data_link ? `<a href="${d.data_link}" target="_blank" rel="noopener">Data</a><br>` : ""}
+        ${d.report_link ? `<a href="${d.report_link}" target="_blank" rel="noopener">Report</a><br>` : ""}
+        ${d.publication_link ? `<a href="${d.publication_link}" target="_blank" rel="noopener">Publication</a><br>` : ""}
+        ${(d.website || d.link) ? `<a href="${d.website || d.link}" target="_blank" rel="noopener">Website</a>` : ""}
+      `;
+    }
+
+    function getFilteredData() {
+      const searchValue = document.getElementById("searchInput").value.trim().toLowerCase();
+      const themeValue = document.getElementById("themeFilter").value;
+      const institutionValue = document.getElementById("institutionFilter").value;
+
+      return allData.filter(d => {
+        const text = [
+          d.name,
+          d.theme,
+          d.institution,
+          d.scale,
+          d.status,
+          d.description,
+          ...(safeArray(d.inputs)),
+          ...(safeArray(d.keywords)),
+          ...(safeArray(d.applications))
+        ]
+          .filter(Boolean)
+          .join(" ")
+          .toLowerCase();
+
+        const matchesSearch = !searchValue || text.includes(searchValue);
+        const matchesTheme = !themeValue || d.theme === themeValue;
+        const matchesInstitution = !institutionValue || d.institution === institutionValue;
+
+        return matchesSearch && matchesTheme && matchesInstitution;
+      });
+    }
+
+    function populateFilters(data) {
+      const themeFilter = document.getElementById("themeFilter");
+      const institutionFilter = document.getElementById("institutionFilter");
+
+      const themes = [...new Set(data.map(d => d.theme).filter(Boolean))].sort();
+      const institutions = [...new Set(data.map(d => d.institution).filter(Boolean))].sort();
+
+      themeFilter.innerHTML = `<option value="">All themes</option>`;
+      institutionFilter.innerHTML = `<option value="">All institutions</option>`;
+
+      themes.forEach(theme => {
+        const option = document.createElement("option");
+        option.value = theme;
+        option.textContent = theme;
+        themeFilter.appendChild(option);
+      });
+
+      institutions.forEach(institution => {
+        const option = document.createElement("option");
+        option.value = institution;
+        option.textContent = institution;
+        institutionFilter.appendChild(option);
+      });
+    }
+
+    function renderStats(data) {
+      const institutions = new Set(data.map(d => d.institution).filter(Boolean));
+      const themes = new Set(data.map(d => d.theme).filter(Boolean));
+      const mappedSites = data.filter(d =>
+        (d.latitude && d.longitude) || d.map_link
+      ).length;
+
+      document.getElementById("statModels").textContent = data.length;
+      document.getElementById("statInstitutions").textContent = institutions.size;
+      document.getElementById("statThemes").textContent = themes.size;
+      document.getElementById("statLocations").textContent = mappedSites;
+    }
+
+    function renderModels() {
+      const filtered = getFilteredData();
+      const tbody = document.getElementById("modelsTableBody");
+      const cards = document.getElementById("modelCards");
+
+      tbody.innerHTML = "";
+      cards.innerHTML = "";
+
+      if (!filtered.length) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="empty-message">No models match the selected filters.</td>
+          </tr>
+        `;
+        return;
+      }
+
+      filtered.forEach(d => {
+        const inputs = safeArray(d.inputs);
+        const keywords = safeArray(d.keywords);
+
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>
+            <strong>${d.name || ""}</strong>
+            ${(d.website || d.link) ? `<br><a href="${d.website || d.link}" target="_blank" rel="noopener">Open</a>` : ""}
+          </td>
+          <td>${d.theme || ""}</td>
+          <td>${d.institution || ""}</td>
+          <td>${d.scale || ""}</td>
+          <td>${inputs.join(", ")}</td>
+          <td>${d.status || ""}</td>
+        `;
+        tbody.appendChild(row);
+
+        const card = document.createElement("div");
+        card.className = "model-card";
+        card.innerHTML = `
+          <h3>${d.name || ""}</h3>
+          <div class="meta">
+            ${d.institution || ""}${d.theme ? ` · ${d.theme}` : ""}${d.scale ? ` · ${d.scale}` : ""}
+          </div>
+          <p>${d.description || ""}</p>
+          <div>
+            ${keywords.map(k => `<span class="pill">${k}</span>`).join("")}
+          </div>
+          ${(d.website || d.link) ? `<p><a href="${d.website || d.link}" target="_blank" rel="noopener">Learn more</a></p>` : ""}
+        `;
+        cards.appendChild(card);
+      });
+    }
+
+    function initMap() {
+      if (map) return;
+
+      map = L.map("map", {
+        center: URUGUAY_VIEW.center,
+        zoom: URUGUAY_VIEW.zoom,
+        maxBounds: URUGUAY_VIEW.bounds,
+        maxBoundsViscosity: 1.0
+      });
+
+      L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        attribution: "&copy; OpenStreetMap contributors"
+      }).addTo(map);
+
+      L.control.scale({ imperial: false }).addTo(map);
+
+      markersLayer = L.layerGroup().addTo(map);
+      geojsonLayerGroup = L.layerGroup().addTo(map);
+    }
+
+    async function renderMap() {
+      const filtered = getFilteredData();
+      initMap();
+
+      markersLayer.clearLayers();
+      geojsonLayerGroup.clearLayers();
+
+      const bounds = L.latLngBounds([]);
+
+      for (const d of filtered) {
+        if (d.latitude && d.longitude) {
+          const lat = Number(d.latitude);
+          const lng = Number(d.longitude);
+
+          if (!Number.isNaN(lat) && !Number.isNaN(lng)) {
+            const marker = L.circleMarker([lat, lng], {
+              radius: 6,
+              color: "#0f4c5c",
+              weight: 2,
+              fillColor: "#2c7da0",
+              fillOpacity: 0.9
+            })
+              .addTo(markersLayer)
+              .bindPopup(popupHtml(d));
+
+            bounds.extend([lat, lng]);
+          }
+        }
+
+        if (d.map_link) {
+          try {
+            const response = await fetch(d.map_link);
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+            const geojsonData = await response.json();
+
+            const layer = L.geoJSON(geojsonData, {
+              style: {
+                color: "#0057b8",
+                weight: 2,
+                fillColor: "#66c2a5",
+                fillOpacity: 0.30
+              },
+              onEachFeature: function(feature, featureLayer) {
+                featureLayer.bindPopup(popupHtml(d, feature.properties));
+              }
+            }).addTo(geojsonLayerGroup);
+
+            if (layer.getBounds && layer.getBounds().isValid()) {
+              bounds.extend(layer.getBounds());
+            }
+          } catch (error) {
+            console.error(`Error loading ${d.map_link}:`, error);
+          }
+        }
+      }
+
+      if (bounds.isValid()) {
+        map.fitBounds(bounds, { padding: [20, 20] });
+      } else {
+        map.fitBounds(URUGUAY_VIEW.bounds, { padding: [10, 10] });
+      }
+    }
+
+    async function initPage() {
+      try {
+        allData = await loadData();
+
+        populateFilters(allData);
+        renderStats(allData);
+        renderModels();
+        await renderMap();
+
+        document.getElementById("searchInput").addEventListener("input", async () => {
+          renderModels();
+          await renderMap();
+        });
+
+        document.getElementById("themeFilter").addEventListener("change", async () => {
+          renderModels();
+          await renderMap();
+        });
+
+        document.getElementById("institutionFilter").addEventListener("change", async () => {
+          renderModels();
+          await renderMap();
+        });
+      } catch (error) {
+        console.error("Error initializing page:", error);
+        document.getElementById("modelsTableBody").innerHTML = `
+          <tr>
+            <td colspan="6">
+              Could not load site data.<br>
+              Path expected: <code>${DATA_URL}</code><br>
+              Error: <code>${error.message}</code>
+            </td>
+          </tr>
+        `;
+      }
+    }
+
+    initPage();
+  </script>
+
+</body>
+</html>
