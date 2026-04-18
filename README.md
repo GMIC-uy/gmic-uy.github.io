@@ -1,1 +1,8 @@
-webpage updated 16-04-2026
+/
+├─ index.html
+├─ data/
+│  └─ models.json
+├─ assets/
+│  ├─ logos/
+│  └─ images/
+└─ README.md
