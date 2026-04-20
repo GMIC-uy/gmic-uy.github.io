@@ -4,19 +4,20 @@
     "catchment": "San Salvador",
     "items": [
       {
-        "type": "Conference / Journal",
-        "title": "Paper - Augusto Souto",
-        "url": "https://ageconsearch.umn.edu/record/314037"
+        "type": "Conference Paper",
+        "title": "Assessing the Impact of Agricultural Intensification on Water Pollution: An Integrated Model Assessment of the San Salvador Basin in Uruguay",
+        "url": "https://ageconsearch.umn.edu/record/314037",
+        "year": 2021
       },
       {
         "type": "Report",
-        "title": "Paper - Noelia Rivas",
+        "title": "Proyecto Innovagro",
         "url": "https://www.inia.uy/sites/default/files/publications/2024-10/Revista-INIA-74-set-2023-14.pdf",
         "year": 2023
       },
       {
         "type": "Project",
-        "title": "Proyecto Innovagro - Carriquiry, Navas, Hastings",
+        "title": "Proyecto Innovagro",
         "url": "https://www.anii.org.uy/proyectos/FSA_1_2024_1_180493/modelacion-integrada-ambienteeconomia-para-el-manejo-y-gestion-sostenible-del-agua-y-del-riego-en-sistemas-de-produccion-con-rotaciones-cultivopasturaarroz-en-el-norte-del-pais-frente-a-un-clima-que-cambia/",
         "year": 2024
       },
@@ -33,14 +34,16 @@
     "catchment": "Microcuencas",
     "items": [
       {
-        "type": "Journal Article",
-        "title": "Assessing effects of afforestation on streamflow in Uruguay",
-        "url": "https://doi.org/10.1002/hyp.15272"
+        "type": "Proyecto",
+        "title": "ANII-FSI I 2016 1-128679 Indicadores ambientales multiescala de la forestación en Uruguay",
+        "url": "https://www.anii.org.uy/proyectos/",
+        "year": 2016
       },
       {
-        "type": "Project",
-        "title": "Indicadores ambientales multiescala de la forestación en Uruguay",
-        "url": "https://www.anii.org.uy/proyectos/"
+        "type": "Journal Article",
+        "title": "Assessing effects of afforestation on streamflow in Uruguay: From small to large basins",
+        "url": "https://doi.org/10.1002/hyp.15272",
+        "year": 2024
       },
       {
         "type": "Journal Article",
@@ -52,13 +55,31 @@
   },
   {
     "model_id": 4,
-    "catchment": "Santa Lucía Cuenca 60",
+    "catchment": "Santa Lucía (Cuenca 60)",
     "items": [
       {
         "type": "Journal Article",
         "title": "Identifying climate and human impact trends in streamflow: A case study in Uruguay",
         "url": "https://doi.org/10.3390/w11071433",
         "year": 2019
+      },
+      {
+        "type": "Journal Article",
+        "title": "Building trust in SWAT model scenarios through a multi-institutional approach in Uruguay",
+        "url": "https://doi.org/10.18174/sesmo.2020a17892",
+        "year": 2020
+      },
+      {
+        "type": "OSF",
+        "title": "SWAT Subcuenca Santa Lucia",
+        "url": "https://osf.io/uqb5j/overview",
+        "year": 2020
+      },
+      {
+        "type": "Journal Article",
+        "title": "Integrated Catchment Models for Policy Development and Decision Making",
+        "url": "https://doi:10.31285/AGRO.27.1194",
+        "year": 2024
       }
     ]
   },
@@ -67,14 +88,16 @@
     "catchment": "Queguay",
     "items": [
       {
-        "type": "Journal Article",
-        "title": "Assessing effects of afforestation on streamflow in Uruguay: From small to large basins",
-        "url": "https://doi.org/10.1002/hyp.15272"
+        "type": "Proyecto",
+        "title": "ANII-FSI I 2016 1-128679 Indicadores ambientales multiescala de la forestación en Uruguay",
+        "url": "https://www.anii.org.uy/proyectos/",
+        "year": 2016
       },
       {
-        "type": "Project",
-        "title": "Indicadores ambientales multiescala de la forestación en Uruguay (ANII)",
-        "url": "https://www.anii.org.uy/proyectos/"
+        "type": "Journal Article",
+        "title": "Assessing effects of afforestation on streamflow in Uruguay: From small to large basins",
+        "url": "https://doi.org/10.1002/hyp.15272",
+        "year": 2024
       }
     ]
   },
@@ -83,9 +106,10 @@
     "catchment": "Cebollatí",
     "items": [
       {
-        "type": "Project (upcoming)",
-        "title": "Proyecto FPTA (próximo)",
-        "url": "https://www.inia.uy/"
+        "type": "Project",
+        "title": "Proyecto FPTA (upcoming)",
+        "url": "SURE-HIDRO",
+        "year": 2026
       }
     ]
   },
@@ -94,25 +118,34 @@
     "catchment": "Arapey Grande",
     "items": [
       {
+        "type": "Proyecto",
+        "title": "ANII-FSI I 2016 1-128679 Indicadores ambientales multiescala de la forestación en Uruguay",
+        "url": "https://www.anii.org.uy/proyectos/",
+        "year": 2016
+      },
+      {
         "type": "Journal Article",
         "title": "Assessing effects of afforestation on streamflow in Uruguay: From small to large basins",
-        "url": "https://doi.org/10.1002/hyp.15272"
+        "url": "https://doi.org/10.1002/hyp.15272",
+        "year": 2024
       },
       {
-        "type": "Project",
-        "title": "Indicadores ambientales multiescala de la forestación en Uruguay (ANII)",
-        "url": "https://www.anii.org.uy/proyectos/"
-      },
-      {
-        "type": "Conference",
-        "title": "Publicación Rafael Navas (EGU)",
-        "url": "https://egu.eu/"
+        "type": "Conference Paper",
+        "title": "Mitigating the impact of agricultural land use on total phosphorus concentration through upstream controlled reservoir releases.",
+        "url": "https://swat.tamu.edu/conferences/2023-aarhus/agenda/",
+        "year": 2024
       },
       {
         "type": "Project",
         "title": "Proyecto Innovagro",
         "url": "https://www.anii.org.uy/proyectos/FSA_1_2024_1_180493/modelacion-integrada-ambienteeconomia-para-el-manejo-y-gestion-sostenible-del-agua-y-del-riego-en-sistemas-de-produccion-con-rotaciones-cultivopasturaarroz-en-el-norte-del-pais-frente-a-un-clima-que-cambia/",
         "year": 2024
+      },
+      {
+        "type": "Conference Paper",
+        "title": "Basin-Scale Design of Irrigation Districts and Water Planning Strategies for Sustainable Agricultural Intensification",
+        "url": "https://doi.org/10.5194/egusphere-egu26-22150",
+        "year": 2026
       }
     ]
   },
@@ -121,9 +154,15 @@
     "catchment": "Tala",
     "items": [
       {
-        "type": "Journal Articles (current research)",
-        "title": "Publicaciones actuales - Andrés Saracho",
-        "url": "https://scholar.google.com/citations?user=oVUqjWgAAAAJ"
+        "type": "",
+        "title": "Evaluación de los caudales ambientales en una cuenca agrícola",
+        "url": "https://icolibri.com.br/2025/public/__anais/TC0130002.pdf"
+      },
+      {
+        "type": "Journal Article",
+        "title": "Assessing impacts of irrigation on flows frequency downstream of an irrigated agricultural system by the SWAT model",
+        "url": "https://piahs.copernicus.org/articles/385/423/2024/",
+        "year": 2024
       }
     ]
   },
@@ -132,20 +171,22 @@
     "catchment": "Borracho (Tacuarembó)",
     "items": [
       {
-        "type": "Journal Article",
-        "title": "Assessing effects of afforestation on streamflow",
-        "url": "https://doi.org/10.1002/hyp.15272"
-      },
-      {
-        "type": "Project",
-        "title": "Indicadores ambientales multiescala",
-        "url": "https://www.anii.org.uy/proyectos/"
+        "type": "Proyecto",
+        "title": "ANII-FSI I 2016 1-128679 Indicadores ambientales multiescala de la forestación en Uruguay",
+        "url": "https://www.anii.org.uy/proyectos/",
+        "year": 2016
       },
       {
         "type": "Project",
         "title": "Proyecto FPTA 358",
-        "url": "https://www.inia.uy/",
+        "url": "10.31285/AGRO.27.1194",
         "year": 2021
+      },
+      {
+        "type": "Journal Article",
+        "title": "Assessing effects of afforestation on streamflow in Uruguay: From small to large basins",
+        "url": "https://doi.org/10.1002/hyp.15272",
+        "year": 2024
       }
     ]
   },
@@ -155,8 +196,9 @@
     "items": [
       {
         "type": "Thesis",
-        "title": "Tesis - Lescano",
-        "url": "https://www.colibri.udelar.edu.uy/"
+        "title": "Tesis de Maestría -Carolina Lescano",
+        "url": "https://www.colibri.udelar.edu.uy/jspui/handle/20.500.12008/37622",
+        "year": 2023
       }
     ]
   },
@@ -167,7 +209,8 @@
       {
         "type": "Report",
         "title": "Informe MA - Mercedes Gelós",
-        "url": "https://www.gub.uy/ministerio-ambiente/"
+        "url": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/SWAT_FINAL_Informe%20sobre%20la%20modelacion%20de%20plaguicidas%20en%20la%20Subcuenca%2060%20del%20Arroyo%20Santa%20Luc%C3%ADa%20con%20SWAT.pdf",
+        "year": 2019
       }
     ]
   },
@@ -176,14 +219,16 @@
     "catchment": "Río Negro",
     "items": [
       {
-        "type": "Report",
-        "title": "Informe DINACEA",
-        "url": "https://www.gub.uy/ministerio-ambiente/"
+        "type": "Conference Paper",
+        "title": "Implementación de un modelo de calidad de agua con la herramienta SWAT en la cuenca del Río Negro",
+        "url": "https://aidis.org.uy/wp-content/uploads/2022/11/Hastings-Florencia.pdf",
+        "year": 2022
       },
       {
-        "type": "Conference / Journal",
-        "title": "Publicación AIDIS Río Negro",
-        "url": "https://aidisnet.org/"
+        "type": "Report",
+        "title": "Informe MA",
+        "url": "https://www.gub.uy/ministerio-ambiente/sites/ministerio-ambiente/files/documentos/publicaciones/Resumen%20del%20PLAN%20DE%20CUENCA%20RIO%20NEGRO_compressed%20%281%29.pdf",
+        "year": 2023
       }
     ]
   },
@@ -193,8 +238,14 @@
     "items": [
       {
         "type": "Journal Article",
-        "title": "Publicación GWFlow - Gelós / Navas",
-        "url": "https://scholar.google.com/"
+        "title": "Quantifying baseflow changes due to irrigation expansion using SWAT+ gwflow",
+        "url": "https://scholar.google.com/citations?view_op=view_citation&hl=es&user=oVUqjWgAAAAJ&sortby=pubdate&citation_for_view=oVUqjWgAAAAJ:roLk4NBRz8UC"
+      },
+      {
+        "type": "Journal Article",
+        "title": "SanAntonioApp: interactive visualization and repository of spatially distributed flow duration curves of the San Antonio Creek-Uruguay",
+        "url": "https://doi.org/10.31285/agro.26.979",
+        "year": 2022
       }
     ]
   },
@@ -203,16 +254,9 @@
     "catchment": "Laguna del Sauce",
     "items": [
       {
-        "type": "Conference",
-        "title": "SWAT modelling of Laguna del Sauce",
-        "url": "https://swat.tamu.edu/media/p20nd1dd/2_swat_sauce.pdf",
-        "authors": "Azanrez et al."
-      },
-      {
         "type": "Journal Article",
-        "title": "Analysing the Impact of Climate Change on Hydrological Ecosystem Services in Laguna del Sauce (Uruguay)",
-        "url": "https://doi.org/10.3390/rs13102014",
-        "authors": "Azanrez et al.",
+        "title": "Analysing the Impact of Climate Change on Hydrological Ecosystem Services in Laguna del Sauce (Uruguay) Using the SWAT Model and Remote Sensing Data",
+        "url": "https://www.mdpi.com/2072-4292/13/10/2014",
         "year": 2021
       }
     ]
@@ -222,39 +266,69 @@
     "catchment": "Santa Lucía",
     "items": [
       {
-        "type": "Journal Articles (current research)",
-        "title": "Additional publications - Angela Gorgoglione",
-        "url": "https://scholar.google.com/"
+        "type": "Conference Paper",
+        "title": "Evalaución de escenarios de uso de suelo en una subcuenca del Río Santa Lucía utilizando el modelo SWAT",
+        "url": "https://www.fing.edu.uy/imfia/congresos/caae/assets/trabajos/58_Modelaci%C3%B3n_con_SWAT_en_la_cuenca_del_Santa_Luc%C3%ADa:.pdf"
       },
       {
-        "type": "Journal Articles (current research)",
-        "title": "Additional publications - Federico Vilaseca",
-        "url": "https://scholar.google.com/"
+        "type": "Conference Paper",
+        "title": "Aplicación del modelo SWAT en estudios de la presencia de glifosato en escorrentías rurales en una subcuenca del río Santa LucíaAplicación del modelo SWAT en estudios de la presencia de glifosato en escorrentías rurales en una subcuenca del río Santa Lucía",
+        "url": "https://bit.ly/3Zl8QM0",
+        "year": 2018
+      },
+      {
+        "type": "Thesis",
+        "title": "Tesis de Mestría - Eliana Nervi",
+        "url": "https://dro.deakin.edu.au/articles/thesis/Merging_blue_green_Infrastructure_and_biotechnology_the_case_of_glyphosate_in_Santa_Lucia_s_sub-basin/21115849/1/files/37461784.pdf",
+        "year": 2018
       },
       {
         "type": "Report",
-        "title": "Informe DINACEA",
-        "url": "https://www.gub.uy/ministerio-ambiente/"
+        "title": "Informe MA",
+        "url": "https://www.gub.uy/ministerio-ganaderia-agricultura-pesca/comunicacion/noticias/avanza-proyecto-gestion-conservacion-agua-cuenca-santa-lucia",
+        "year": 2019
+      },
+      {
+        "type": "Journal Article",
+        "title": "Influence of Land Use/Land Cover on Surface-Water Quality of Santa Lucía River, Uruguay",
+        "url": "https://www.mdpi.com/2071-1050/12/11/4692",
+        "year": 2020
+      },
+      {
+        "type": "Journal Article",
+        "title": "Simulación del proceso precipitación-escorrentía con paso diario : Comparación de los modelos GR4J, SWAT y Random Forest.",
+        "url": "https://doi.org/10.3390/rs13102014",
+        "year": 2021
+      },
+      {
+        "type": "Conference Paper",
+        "title": "Apoyo a la gestión de los recursos hídricos en Uruguay: Grupo de modelación integrada de cuenca",
+        "url": "https://aidis.org.uy/wp-content/uploads/2022/11/Nervi-Eliana.pdf",
+        "year": 2022
+      },
+      {
+        "type": "Conference Paper",
+        "title": "Modelación con SWAT en la cuenca del Santa Lucía : un ejemplo exitoso de trabajo Interinstitucional e Interdisciplinario para la gestión de los Recursos Hídricos en Uruguay.",
+        "url": "https://aidis.org.uy/wp-content/uploads/2022/11/Nervi-Eliana-2.pdf",
+        "year": 2022
+      },
+      {
+        "type": "Journal Article",
+        "title": "On the prediction of phosphorus fluxes in the Santa Lucía basin under different land use and management practices using SWAT model",
+        "url": "https://psp7.org/abstracts-2/",
+        "year": 2022
+      },
+      {
+        "type": "Journal Article",
+        "title": "Simulation of the daily rainfall-runoff process: comparison among GR4J, SWAT, and Random Forest",
+        "url": "https://doi.org/10.1080/23863781.2023.2238127",
+        "year": 2023
       },
       {
         "type": "Journal Article",
         "title": "Modeling Ecosystem Services and Externalities for Ecosystem Accounting: The Case of Santa Lucia Sub-Basin in Uruguay",
         "url": "https://doi.org/10.3390/su18031571",
-        "authors": "Hastings, Borges, Hein, Carriquiry"
-      },
-      {
-        "type": "Journal Article",
-        "title": "Influence of Land Use/Land Cover on Surface-Water Quality of Santa Lucía River, Uruguay",
-        "url": "https://doi.org/10.3390/su12114692",
-        "authors": "Gorgoglione et al.",
-        "year": 2020
-      },
-      {
-        "type": "Journal Article",
-        "title": "Assessing influential rainfall-runoff variables to simulate daily streamflow using random forest",
-        "url": "https://doi.org/10.1080/02626667.2023.2232356",
-        "authors": "Vilaseca et al.",
-        "year": 2023
+        "year": 2026
       }
     ]
   }

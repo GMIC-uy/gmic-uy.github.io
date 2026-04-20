@@ -12,6 +12,10 @@
     "url": "https://www.gub.uy/ministerio-ambiente/"
   },
   {
+    "name": "The University of Sydney",
+    "url": "https://www.sydney.edu.au/"
+  },
+  {
     "name": "Universidad ORT",
     "url": "https://www.ort.edu.uy/"
   },
@@ -22,9 +26,5 @@
   {
     "name": "Universidad de la República (IMFIA)",
     "url": "https://www.fing.edu.uy/imfia/"
-  },
-  {
-    "name": "The University of Sydney",
-    "url": "https://www.sydney.edu.au/"
   }
 ]

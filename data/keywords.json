@@ -39,7 +39,11 @@
   {
     "model_id": 6,
     "catchment": "Cebollati",
-    "keywords": []
+    "keywords": [
+      "calidad de agua",
+      "cantidad de agua",
+      "arroz"
+    ]
   },
   {
     "model_id": 7,
@@ -54,7 +58,8 @@
     "catchment": "Tala",
     "keywords": [
       "horticultura",
-      "riego"
+      "riego",
+      "caudales ambientales"
     ]
   },
   {
@@ -112,7 +117,8 @@
     "model_id": 16,
     "catchment": "Olimar",
     "keywords": [
-      "cantidad de agua"
+      "cantidad de agua",
+      "caudales ambientales"
     ]
   }
 ]
