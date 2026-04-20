@@ -1354,6 +1354,21 @@
       return normalizeKey(d.table_name || d.name || "") === "rio negro";
     }
 
+    function isSantaLuciaCuenca60Layer(d) {
+      const link = String(d.map_link || "").toLowerCase();
+      if (link.includes("santa-lucia-cuenca-60.geojson")) return true;
+      const key = normalizeKey(d.table_name || d.name || "");
+      if (key.includes("santa lucia") && key.includes("cuenca 60")) return true;
+      return Number(d.id) === 4;
+    }
+
+    function isSantaLuciaLayer(d) {
+      const key = normalizeKey(d.table_name || d.name || "");
+      if (key.includes("cuenca 60")) return false;
+      if (key === "santa lucia") return true;
+      return Number(d.id) === 15;
+    }
+
     function splitThemes(value) {
       return String(value || "")
         .split(/[,/]/)
@@ -1990,6 +2005,9 @@
         // Large polygons first (below), microcuencas last (above).
         if (isMicrocuencasLayer(d)) return 2;
         if (isRioNegroLayer(d)) return 0;
+        // Ensure Santa Lucia (Cuenca 60) is above Santa Lucia when both overlap.
+        if (isSantaLuciaCuenca60Layer(d)) return 1.2;
+        if (isSantaLuciaLayer(d)) return 1.1;
         return 1;
       };
       const mapData = [...filtered].sort((a, b) => layerRank(a) - layerRank(b));
@@ -2019,6 +2037,10 @@
 
             if (isRioNegroLayer(d) && layer.bringToBack) {
               layer.bringToBack();
+            }
+
+            if (isSantaLuciaCuenca60Layer(d) && layer.bringToFront) {
+              layer.bringToFront();
             }
 
             if (isMicrocuencasLayer(d) && layer.bringToFront) {
