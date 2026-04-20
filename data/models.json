@@ -90,7 +90,7 @@
       "water quality",
       "basin"
     ],
-    "map_link": "data/catchments/santa-lucia-dinacea.geojson",
+    "map_link": "data/catchments/santa-lucia-cuenca-60.geojson",
     "table_order": 4,
     "table_name": "Santa Lucia (Cuenca 60)",
     "table_scale": "Catchment",
